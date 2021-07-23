@@ -1,0 +1,171 @@
+//function syntax 
+
+//func (r receiver) identifierer(parameter) (return type(s)) {...}
+
+// IN go everything is PASS BY VALUE 
+//Called function argument is PASS BY VALUE in go lang 
+
+//function example 
+
+
+//simple function
+
+func simple() {
+	fmt.Println(" i am simple function from go lang")
+}
+
+//function with parameter 
+
+func func_with_para(s  string, x int, y int) {
+	fmt.Println(s,x,y)
+}
+
+//function with parameter and return somthing 
+
+func func_with_para_and_retun (str string, x rune, y byte) (string, error) {
+	return fmt.Sprint("%v\t%v\t%v\n", str, x, y), true
+}
+
+//veriadic parameter of function 
+// ... is repesent veriadic parameter
+//sum(1,2,3,4,5,6,7,6,7,8)
+
+func sum (x ...int) int {
+	s := 0
+	for _ , v := range x {
+		s += v
+	}
+	return s
+}
+
+//unfurling a slice 
+//for example we declear slice of int 
+// num := []int{1,2,3,4,5,6,7,6,7,8}
+// and we wanted to pass num slice to sum funtion 
+// but num is type of int slice and function sum parameter is type veriadic int 
+// so we can pass num as argument in sum function by using ... oprator 
+// sum(num...)
+
+
+// Need to read more about "defer" [i am not able to undaestand this concept of defer]
+// defer is a keyword of go lang , and that is very use full keyword .
+// In Go language, defer statements delay the execution of the function or method or 
+// an anonymous method until the nearby functions returns. Or in other words, 
+// defer function or method call arguments evaluate instantly, but they execute until the nearby functions returns.
+
+/* Important Points:
+// 1 > In Go language, multiple defer statements are allowed in the same program and 
+// 	   they are executed in LIFO(Last-In, First-Out) order as shown in Example 2.
+// 2 > In the defer statements, the arguments are evaluated when the defer statement executed, not when they called.
+// 3 > Defer statements are generally used to ensure that the files are closed when your work is finished with them, 
+//     or to close the channel, or to catch the panics in the program.
+*/
+
+// methods in function [https://www.geeksforgeeks.org/methods-in-golang/]
+// example 
+// struct type methods
+// methods has receiver type assoceate with it so, function can acsses receiver members or element 
+// methods is a function that has defined receiver.
+
+type student struct {
+	s_fristname string 
+	s_lastname string 
+	s_class int8
+	s_deprt string 
+	s_sub []string 
+} 
+
+fun (s student) add_student_info(s_fristname string, s_lastname string, s_class int8, s_depart string,s_sub []string) bool {
+			s.s_fristname = s_fristname
+			s.s_lastname = s_lastname
+			s.s_class = s_class
+			s.s_deprt = s_depart
+			s.s_sub = s_sub
+			
+			return true
+}
+
+func main () {
+	 var s1 student
+	 
+	 s.add_student_info("x", "y", 3, "ces", sub)
+
+}
+
+
+//anonymous function
+// The function that deos not have any name or function without  name identifier
+
+// syntax 
+
+func(parameter){ <code> }
+//How can we called anonymous function 
+// for example 
+
+func main() {
+	func(x int) {
+		fmt.Println(x)
+	}(123)
+}
+
+//func expression
+//need to read about it
+
+//example
+
+func main() {
+	f := func(x int) {
+		fmt.Println(x)
+	}(123)
+	
+	f2 := func(x int) {
+		x++
+	}(45)
+	fmt.Println(f2)
+}
+
+//Returnning a func from function 
+//example
+
+func func_that_return_function() func() int {
+	return func() int {
+		return 1995
+	}
+} 
+
+func main() {
+	f := func_that_return_function()
+	f()
+	//we can called this
+	func_that_return_function()()
+}
+
+//callback 
+//pass function as argument in function it's called callback func 
+//good link for callback : https://medium.com/@oshankkumar/callback-function-in-golang-df32fa81a4e2
+//example
+func sum(x ..int) int {
+ total := 0
+ for _, v := range {
+	total += v
+ }
+	return total
+}
+func even(callback_func func(x ...int) int, num ...int) int {
+	var even_num []int 
+	
+	for _, v := range num {
+		if v %2 == 0 {
+			//even_num[i] = v
+			append(even_num, v)
+		}
+	}
+	
+	return callback_func(even_num)
+}
+
+func main() {
+	i := []int{1,2,3,4,5,6,7,8,9,}
+	fmt.Println(even(sum, i)
+}
+

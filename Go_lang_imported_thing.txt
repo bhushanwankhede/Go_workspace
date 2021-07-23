@@ -1,0 +1,40 @@
+Go lang 
+
+:Book link 
+1 > https://www.gopl.io/ch1.pdf
+2 > https://pepa.holla.cz/wp-content/uploads/2016/10/Go-in-Action.pdf
+3 > http://www.sufuq.com/books/golang/The%20Way%20To%20Go.pdf
+
+//what is golang.org and godoc.org
+
+//watch secsion 35 : when you get some free time 
+
+
+Exported / Unexported :
+	visible / not visible
+	in go we don'r say public/private
+	Capitilizition : 
+		# Capitilize: exported : visible outside of package 
+			In Go langauge pacakge function's or variable's decleare with Capitil latter i.e we provide the access 
+			to that function or variable to visible outside of pacakge or other can use that function or variable
+			In tequenical word we provide globle scope to that function's or variable's
+		# Lowercase : unexported : not visible outside of package
+			we provide static scope of that function's or variable.
+			
+		
+
+go Command 
+	go run 
+	go build 
+	go install
+	go clean 
+	
+#Blank identifier
+	Syntax
+		_
+	Blank identifier is allow you to tell compiler you not using somthing 
+	
+// Best link for concurrency 
+// link : https://divan.dev/posts/go_concurrency_visualize/
+
+

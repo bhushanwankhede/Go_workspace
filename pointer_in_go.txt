@@ -1,0 +1,28 @@
+//Go pointer
+
+
+// what is a pointer in go 
+//--> pointer is a variable to hold address of same type or point to the address within memory of same type
+
+//Syntax 
+
+	var pointer_var *int  = nil // pointer_var is a int type pointer and thats pointing to the nothing [nil is like NULL]
+	
+	var int_var int = 0
+	pointer_var = &int_var 
+
+//methods sets
+//methods sets determine what methods attach to a Type .
+
+//a NON-POINTER RECEIVER
+//  work with value that are POINTER and NON-POINTER
+//a POINTER RECEIVER
+//   work with value that are POINTER
+
+Receiver      Value 
+-----------------------
+(t T)          T and *T
+
+(t *T)		    *T
+
+

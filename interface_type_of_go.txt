@@ -1,0 +1,85 @@
+//Interface in go 
+
+//Interface is a custom type that use to specify a set of one or more methods signatures.
+// Interface type of Go lang is allow us to do polymorphism 
+
+// Syntax
+
+type interface_name interface{
+
+	// Method signatures
+} 
+
+
+
+//example 
+
+package main
+
+import ( "fmt" )
+
+type student struct {
+	fristName string
+	lastName string
+	p_info map[string][]string
+	depart string
+	class int8
+}
+
+func (s student) students_info() {
+		fmt.Println(s)
+}
+
+func (s student) add_student_info(fristname string, lastname string, class int8, depart string,sub []string, p_info map[string][]string) bool {
+			s.fristname = fristname
+			s.lastname = lastname
+			s.class = class
+			s.deprt = depart
+			s.sub = sub
+			for k, v := range p_info{
+				s.p_info[k] = v
+			}
+			
+			return true
+}
+
+type college interface{
+	students_info()
+	add_student_info() bool
+}
+
+func main() {
+	 var s1 college
+	 
+	 s1.add_student_info()
+	 s1.students_info()
+}
+
+
+//mportant Points
+// 1 > The zero value of the interface is nil.
+// 2 > When an interface contains zero methods, such types of interface is known as the empty interface.
+// So, all the types implement the empty interface.
+// Syntax:
+  interface{}
+
+//3 > Interface Types: The interface is of two types one is static and another one is dynamic type. 
+// The static type is the interface itself, for example, tank in the below example. 
+// But interface does not have a static value so it always points to the dynamic values.
+
+// 4 > Type Assertions: In Go language, type assertion is an operation applied to the value of the interface. 
+// Or in other words, type assertion is a process to extract the values of the interface.
+// Syntax:
+
+	a.(T)
+	
+// 5 > Type Switch: In Go interface, type switch is used to compare the concrete type of an interface 
+// with the multiple types provide in the case statements. 
+// It is similar to type assertion with only one difference, i.e, case specifies types, not the values.
+// Syntax :
+   
+   a.(type)
+//reference 
+
+// https://www.geeksforgeeks.org/interfaces-in-golang/
+// https://www.ardanlabs.com/blog/2015/09/composition-with-go.html
